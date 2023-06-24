@@ -117,8 +117,12 @@ On a GCP VM to run on port 80:
     ```bash
     gcloud compute firewall-rules create <rule-name> --allow tcp:80 --source-tags=<list-of-your-instances-name-tags> --source-ranges=0.0.0.0/0 --description="<your-description-here>"
     ```
-    
-From the UI, you can ask questions like:
+
+Once deployed, you will be able to see the Dashboard and Chat UI:
+![Dashboard](notebook/images/dash.png)
+![Chat](notebook/images/chat.png)
+
+From the Chat UI, you can ask questions like:
 1. What are some of the predictions made about Adelaide Crows?
 2. Who are the players mentioned in episode 1?
 3. What is episode 4 about?
@@ -126,3 +130,4 @@ From the UI, you can ask questions like:
 5. What are the top 5 common themes across all episodes combined?
 6. Who are the most commonly talked players?
 7. Who are the most commonly talked coaches?
+8. what is the gist of episode 11?

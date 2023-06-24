@@ -15,12 +15,12 @@ st.set_page_config(
 
 st.title("AFL Access All Areas")
 
-# @st.cache_data
+@st.cache_data
 def get_data() -> pd.DataFrame:
     return run_query("""
-      MATCH (n:Episode) return n.id as Id, 
+      MATCH (n:Episode) return n.episode as episode, 
       n.title as Title, n.synopsis as Synopsis,
-      n.img as Image, n.videoUrl as Url""")
+      n.img as Image, n.id as Id, n.videoUrl as Url""")
 
 df_episodes = get_data()
 
@@ -48,7 +48,7 @@ with placeholder.container():
         st.markdown("### Episodes & Team mentions")
         df_te_1 = run_query("""
             MATCH (e:Episode) 
-            return e.id as id, e.title as label, '#33a02c' as color""")
+            return e.id as id, 'Episode '+e.episode as label, '#33a02c' as color""")
         df_te_2 = run_query("""
             MATCH (t:Team) 
             return t.id as id, t.name as label, '#1f78b4' as color""")
