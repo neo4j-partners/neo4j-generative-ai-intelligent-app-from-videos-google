@@ -119,7 +119,7 @@ On a GCP VM to run on port 80:
     ```
     
 From the UI, you can ask questions like:
-1. What are the predictions about Adelaide Crows?
+1. What are some of the predictions made about Adelaide Crows?
 2. Who are the players mentioned in episode 1?
 3. What is episode 4 about?
 4. What are the headlines for episode 7?

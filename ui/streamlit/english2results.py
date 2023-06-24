@@ -42,7 +42,7 @@ CYPHER_GENERATION_PROMPT = PromptTemplate(
     input_variables=["schema", "question"], template=CYPHER_GENERATION_TEMPLATE
 )
 
-@retry(tries=1, delay=5)
+@retry(tries=3, delay=5)
 def get_results(messages):
     start = timer()
     try:
@@ -67,9 +67,9 @@ def get_results(messages):
         else: 
             question = 'How many cases are there?'
         return chain(question)
-    except Exception as ex:
-        print(ex)
-        return "LLM Quota Exceeded. Please try again"
+    # except Exception as ex:
+    #     print(ex)
+    #     return "LLM Quota Exceeded. Please try again"
     finally:
         print('Cypher Generation Time : {}'.format(timer() - start))
 
