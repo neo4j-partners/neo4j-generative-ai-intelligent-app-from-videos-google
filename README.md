@@ -107,7 +107,7 @@ You will now need to edit that file to reflect your credentials. The file has th
 Now we can run the app with the commands:
 
     cd ..
-    streamlit run main.py --server.port=80
+    streamlit run Home.py --server.port=80
 
 On a GCP VM to run on port 80:
 - Ensure you are a root or has access to run on port 80
