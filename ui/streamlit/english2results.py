@@ -26,20 +26,20 @@ CYPHER_GENERATION_TEMPLATE = """You are an expert Neo4j Cypher translator who un
 7. Cypher is NOT SQL. So, do not mix and match the syntaxes
 Schema:
 {schema}
+Samples:
+Question: What are the predictions about the Swans?
+Answer: MATCH (e:Episode)-[:HAS_PREDICTION]->(p:Prediction) WHERE toLower(p.name) CONTAINS 'swans' RETURN p.name
+Question: Who are the players mentioned in episode 1?
+Answer: MATCH (e:Episode)-[:DISCUSSES_PLAYER]->(p:Player) WHERE e.episode = '1' RETURN p.name
+Question: What are the top 5 common themes across all episodes combined?
+Answer: MATCH (e:Episode)-[:HAS_THEME]->(t:Theme) RETURN t.name as theme, count(*) as num_themes ORDER BY num_themes DESC LIMIT 5
+Question: Who are the most commonly talked coaches?
+Answer: MATCH (e:Episode)-[:DISCUSSES_COACH]->(p:Coach) RETURN DISTINCT p.name as coach, count(e) as num_mentions  ORDER BY num_mentions DESC LIMIT 5
+Question: What is the gist of episode 4?
+Answer: MATCH (e:Episode) WHERE e.episode = '4' RETURN e.synopsis
 
-Human: What are the predictions about the Swans?
-AI: MATCH (e:Episode)-[:HAS_PREDICTION]->(p:Prediction) WHERE toLower(p.name) CONTAINS 'swans' RETURN p.name
-Human: Who are the players mentioned in episode 1?
-AI: MATCH (e:Episode)-[:DISCUSSES_PLAYER]->(p:Player) WHERE e.episode = '1' RETURN p.name
-Human: What are the top 5 common themes across all episodes combined?
-AI: MATCH (e:Episode)-[:HAS_THEME]->(t:Theme) RETURN t.name as theme, count(*) as num_themes ORDER BY num_themes DESC LIMIT 5
-Human: Who are the most commonly discussed coaches?
-AI: MATCH (e:Episode)-[:DISCUSSES_COACH]->(p:Coach) RETURN DISTINCT p.name as coach, count(e) as num_mentions  ORDER BY num_mentions DESC LIMIT 5
-Human: What is the gist of episode 4?
-AI: MATCH (e:Episode) WHERE e.episode = '4' RETURN e.synopsis
-
-Human: {question}
-AI:"""
+Question: {question}
+Answer:"""
 CYPHER_GENERATION_PROMPT = PromptTemplate(
     input_variables=["schema", "question"], template=CYPHER_GENERATION_TEMPLATE
 )
