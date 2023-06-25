@@ -80,8 +80,8 @@ user_input = get_text()
 
 if user_input:
     start = timer()
-    results = get_results(generate_context(user_input, 'database_results'))
     try:
+        results = get_results(generate_context(user_input, 'database_results'))
         cypher_step = results['intermediate_steps']
         print('Total Time : {}'.format(timer() - start))
         if len(cypher_step) > 0 and 'query' in cypher_step[0]:

@@ -35,6 +35,8 @@ Human: What are the top 5 common themes across all episodes combined?
 AI: MATCH (e:Episode)-[:HAS_THEME]->(t:Theme) RETURN t.name as theme, count(*) as num_themes ORDER BY num_themes DESC LIMIT 5
 Human: Who are the most commonly talked coaches?
 AI: MATCH (e:Episode)-[:DISCUSSES_COACH]->(p:Coach) RETURN DISTINCT p.name as coach, count(e) as num_mentions  ORDER BY num_mentions DESC LIMIT 5
+Human: What is the gist of episode 4?
+AI: MATCH (e:Episode) WHERE e.episode = '4' RETURN e.synopsis
 
 Human: {question}
 AI:"""
@@ -42,7 +44,7 @@ CYPHER_GENERATION_PROMPT = PromptTemplate(
     input_variables=["schema", "question"], template=CYPHER_GENERATION_TEMPLATE
 )
 
-@retry(tries=3, delay=5)
+@retry(tries=5, delay=5)
 def get_results(messages):
     start = timer()
     try:
