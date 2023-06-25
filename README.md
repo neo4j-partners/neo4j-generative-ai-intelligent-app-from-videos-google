@@ -1,7 +1,7 @@
 # Intelligent App From Video Transcripts using Google Generative AI and Neo4j
 This is a sample notebook and web application which shows how Google Vertex AI Generative AI can be used with Neo4j to build and consume Knowledge Graphs using Video Transcripts.
 
-This notebook parses data from [AFL after-match Commentary](https://www.afl.com.au/ondemand/shows/490977/access-all-areas?episode=13#2023) transcripts using Google Vertex AI Generative AI's `text-bison` and `code-bison` models. The models will be prompted to recognise and extract entities and relationships. We will then generate Neo4j Cypher queries using them and write the data to a Neo4j database.
+This notebook parses data from [AFL after-match Commentary](https://www.afl.com.au/ondemand/shows/490977/access-all-areas?episode=1#2023) transcripts using Google Vertex AI Generative AI's `text-bison` and `code-bison` models. The models will be prompted to recognise and extract entities and relationships. We will then generate Neo4j Cypher queries using them and write the data to a Neo4j database.
 
 We will again use `code-bison` model and prompt it to convert questions in english to Cypher - Neo4j's query language, which can be used for data retrieval.
 
