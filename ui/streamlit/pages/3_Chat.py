@@ -12,7 +12,7 @@ vertexai.init(project=st.secrets["GCP_PROJECT"],
 # Hardcoded UserID
 USER_ID = "bot"
 
-st.set_page_config(layout="wide")
+st.set_page_config(page_icon="🧠", layout="wide")
 st.markdown("""
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
