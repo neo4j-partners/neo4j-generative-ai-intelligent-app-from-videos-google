@@ -27,13 +27,13 @@ CYPHER_GENERATION_TEMPLATE = """You are an expert Neo4j Cypher translator who un
 Schema:
 {schema}
 
-Human: What are the predictions about Adelaide Crows?
-AI: MATCH (e:Episode)-[:HAS_PREDICTION]->(p:Prediction) WHERE toLower(p.name) CONTAINS 'adelaide crows' RETURN p.name
+Human: What are the predictions about the Swans?
+AI: MATCH (e:Episode)-[:HAS_PREDICTION]->(p:Prediction) WHERE toLower(p.name) CONTAINS 'swans' RETURN p.name
 Human: Who are the players mentioned in episode 1?
 AI: MATCH (e:Episode)-[:DISCUSSES_PLAYER]->(p:Player) WHERE e.episode = '1' RETURN p.name
 Human: What are the top 5 common themes across all episodes combined?
 AI: MATCH (e:Episode)-[:HAS_THEME]->(t:Theme) RETURN t.name as theme, count(*) as num_themes ORDER BY num_themes DESC LIMIT 5
-Human: Who are the most commonly talked coaches?
+Human: Who are the most commonly discussed coaches?
 AI: MATCH (e:Episode)-[:DISCUSSES_COACH]->(p:Coach) RETURN DISTINCT p.name as coach, count(e) as num_mentions  ORDER BY num_mentions DESC LIMIT 5
 Human: What is the gist of episode 4?
 AI: MATCH (e:Episode) WHERE e.episode = '4' RETURN e.synopsis

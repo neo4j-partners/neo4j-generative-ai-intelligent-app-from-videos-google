@@ -123,11 +123,11 @@ Once deployed, you will be able to see the Dashboard and Chat UI:
 ![Chat](notebook/images/chat.png)
 
 From the Chat UI, you can ask questions like:
-1. What are some of the predictions made about Adelaide Crows?
+1. Who are the most commonly talked players?
 2. Who are the players mentioned in episode 1?
 3. What is episode 4 about?
 4. What are the headlines for episode 7?
 5. What are the top 5 common themes across all episodes combined?
-6. Who are the most commonly talked players?
+6. What predictions are made in episode 6?
 7. Who are the most commonly talked coaches?
 8. what is the gist of episode 11?
