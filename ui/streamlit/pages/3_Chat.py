@@ -157,10 +157,6 @@ st.markdown("""
   </tr>
   <tr>
     <td>I love the Bombers. Which episodes do you recommend?</td>
-    <td>What predictions are made in episode 6?</td>
-    <td>what is the gist of episode 11?</td>
-  </tr>
-  <tr>
     <td>I follow Mason Cox. Which episodes do you recommend?</td>
   </tr>
 </table>
