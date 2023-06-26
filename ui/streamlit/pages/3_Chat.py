@@ -24,15 +24,6 @@ st.markdown("""
     </div>
 """, unsafe_allow_html=True)
 
-def on_input_change():
-    user_input = st.session_state.user_input
-    st.session_state.past.append(user_input)
-    st.session_state.generated.append("The messages from Bot\nWith new line")
-
-def on_btn_click():
-    del st.session_state.past[:]
-    del st.session_state.generated[:]
-
 def generate_context(prompt, context_data='generated'):
     context = []
     # If any history exists
@@ -118,3 +109,59 @@ with another_placeholder.container():
     if st.session_state['cypher']:
         st.text_area("Latest generated Cypher statement",
                      st.session_state['cypher'][-1], height=240)
+        
+
+st.markdown("---")
+
+st.markdown("""
+<style>
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border: none !important;
+    font-family: "Source Sans Pro", sans-serif;
+    color: rgba(49, 51, 63, 0.6);
+    font-size: 0.9rem;
+  }
+
+  tr {
+    border: none !important;
+  }
+  
+  th {
+    text-align: center;
+    colspan: 3;
+    border: none !important;
+    color: #0F9D58;
+  }
+  
+  th, td {
+    padding: 2px;
+    border: none !important;
+  }
+</style>
+
+<table>
+  <tr>
+    <th colspan="3">Sample Questions to try out</th>
+  </tr>
+  <tr>
+    <td>Who are the most commonly talked players?</td>
+    <td>Who are the players mentioned in episode 1?</td>
+    <td>What are the headlines for episode 7?</td>
+  </tr>
+  <tr>
+    <td>What are the top 5 common themes across all episodes combined?</td>
+    <td>What predictions are made in episode 6?</td>
+    <td>what is the gist of episode 11?</td>
+  </tr>
+  <tr>
+    <td>I love the Bombers. Which episodes do you recommend?</td>
+    <td>What predictions are made in episode 6?</td>
+    <td>what is the gist of episode 11?</td>
+  </tr>
+  <tr>
+    <td>I follow Mason Cox. Which episodes do you recommend?</td>
+  </tr>
+</table>
+""", unsafe_allow_html=True)

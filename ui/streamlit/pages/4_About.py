@@ -1,4 +1,5 @@
 import streamlit as st
+from PIL import Image
 
 st.set_page_config(page_icon="🧠", layout="wide")
 st.markdown("""
@@ -16,16 +17,20 @@ Using Google Vertex AI Generative AI's `text-bison` and `code-bison` models, tra
 
 """, unsafe_allow_html=True)
 
-st.image("https://raw.githubusercontent.com/neo4j-partners/intelligent-app-from-videos-google-generativeai-neo4j/main/notebook/images/arch.png?token=GHSAT0AAAAAAB6WIGG3H6N3BBHYWQX7AELUZEYB6PA")
+arch = Image.open('./images/arch.png')
+langchain = Image.open('./images/langchain-neo4j.png')
+schema = Image.open('./images/schema.png')
+
+st.image(arch)
 st.markdown("""
 ---
 
 This the schema in which the Vide transcripts are stored in Neo4j
 """)
-st.image("https://raw.githubusercontent.com/neo4j-partners/intelligent-app-from-videos-google-generativeai-neo4j/main/notebook/images/schema.png?token=GHSAT0AAAAAAB6WIGG3KUV5FFXQ3EZZG7NWZEYCBUA")
+st.image(schema)
 st.markdown("""
 ---
 
 This is how the Chatbot flow goes:
 """)
-st.image("https://raw.githubusercontent.com/neo4j-partners/intelligent-app-from-videos-google-generativeai-neo4j/main/notebook/images/langchain-neo4j.png?token=GHSAT0AAAAAAB6WIGG3BDVPU3RSPAGQ3E3AZEYB7VA")
+st.image(langchain)
