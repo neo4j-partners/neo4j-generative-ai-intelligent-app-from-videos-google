@@ -129,3 +129,5 @@ From the Chat UI, you can ask questions like:
 4. What are the top 5 common themes across all episodes combined?
 5. What predictions are made in episode 6?
 6. what is the gist of episode 11?
+7. I love the Bombers. Which episodes do you recommend?
+8. I follow Mason Cox. Which episodes do you recommend?

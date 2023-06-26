@@ -37,6 +37,10 @@ Question: Who are the most commonly talked coaches?
 Answer: MATCH (e:Episode)-[:DISCUSSES_COACH]->(p:Coach) RETURN DISTINCT p.name as coach, count(e) as num_mentions  ORDER BY num_mentions DESC LIMIT 5
 Question: What is the gist of episode 4?
 Answer: MATCH (e:Episode) WHERE e.episode = '4' RETURN e.synopsis
+Question: Which episodes do you recommend if I am a fan of the Bombers?
+Answer: Match(e:Episode)-[:DISCUSSES_TEAM]->(t:Team) WHERE toLower(t.name) contains 'bombers' return e
+Question: I follow Mason Cox. Which episodes do you recommend?
+Answer: MATCH (e:Episode)-[:DISCUSSES_PLAYER]->(p:Player) WHERE toLower(p.name) CONTAINS 'mason cox' RETURN e
 
 Question: {question}
 Answer:"""
