@@ -61,7 +61,7 @@ def run_pipeline(transcript_url, episode_num, video_url, title, img):
         st.toast("Metadata Saved to Neo4j ✅")
         print(f"    {episode_id}: Disambiguating Teams")
         disambiguate_teams()
-        df_teams = gds.run_cypher('MATCH (n:Team) WHERE NOT(n.name CONTAINS "[") RETURN n.name as name')
+        df_teams = gds.run_cypher('MATCH (n:Team) WHERE NOT(n.name CONTAINS "[") OR NOT(toLower(n.name) CONTAINS "football club") RETURN n.name as name')
         if(len(df_teams) > 0) :
             disambiguate_teams(df_teams)
         st.toast("Team Name Disambiguation ✅")
