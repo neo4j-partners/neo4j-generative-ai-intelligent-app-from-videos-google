@@ -16,21 +16,21 @@ st.set_page_config(
 
 st.title("AFL Access All Areas")
 
-@st.cache_data
+# @st.cache_data
 def get_data() -> pd.DataFrame:
     return run_query("""
       MATCH (n:Episode) return n.episode as Episode, 
       n.title as Title, n.synopsis as Synopsis,
       n.img as Image, n.id as Id, n.videoUrl as Url ORDER BY Id""")
 
-@st.cache_data
+# @st.cache_data
 def get_headlines() -> pd.DataFrame:
     return run_query("""
       MATCH (n:Episode)-[:HAS_HEADLINE]->(h:Headline)
       return n.id as episode, h.name as headline
       """)
 
-@st.cache_data
+# @st.cache_data
 def get_themes() -> pd.DataFrame:
     return run_query("""
       MATCH (n:Episode)-[:HAS_THEME]->(h:Theme)

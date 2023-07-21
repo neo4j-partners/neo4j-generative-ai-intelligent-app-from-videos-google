@@ -25,7 +25,7 @@ st.markdown("""
     </div>
 """, unsafe_allow_html=True)
 
-@st.cache_data
+# @st.cache_data
 def get_data() -> pd.DataFrame:
     return run_query("""
       MATCH (n:Episode) return n.episode as Episode, 
@@ -38,7 +38,6 @@ placeholder = st.empty()
 
 with placeholder.container():
         df_players = run_query("""MATCH (n:Player) return n.name as name""")
-        df_teams = run_query("""MATCH (n:Team) return n.name as name""")
 
         kpi1, kpi2, kpi3 = st.columns(3)
         kpi1.metric(
@@ -47,7 +46,7 @@ with placeholder.container():
         )     
         kpi2.metric(
             label="Teams",
-            value=df_teams.size
+            value=18
         )
         kpi3.metric(
             label="Players",
