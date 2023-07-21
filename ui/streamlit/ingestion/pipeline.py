@@ -269,14 +269,9 @@ def generate_cypher(file_name, in_json):
             id = file_name
           else:
             id = j['id']
-          if label in ['Episode', 'Headline', 'Theme', 'Prediction']:
+          if label in ['Episode', 'Headline', 'Theme', 'Prediction', 'Player', 'Coach', 'Team']:
             varname = get_cypher_compliant_var(j['id'])
             stmt = e_stmt_tpl.substitute(id=varname, label=label, key=id)
-            e_map[varname] = stmt
-            e_stmt.append('MERGE '+ stmt + get_prop_str(j, varname))
-          elif label in ['Player', 'Coach', 'Team']:
-            varname = get_cypher_compliant_var(j['id'])
-            stmt = e_stmt_tpl_1.substitute(id=varname, label=label, name=j['name'].lower())
             e_map[varname] = stmt
             e_stmt.append('MERGE '+ stmt + get_prop_str(j, varname))
 
