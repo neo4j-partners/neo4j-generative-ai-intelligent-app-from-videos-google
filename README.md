@@ -12,7 +12,13 @@ Once that has started, open the notebook and a terminal window within that.  Clo
 
     git clone https://github.com/neo4j-partners/intelligent-app-from-videos-google-generativeai-neo4j.git
 
-The notebook uses Python 3.8 for LangChain.  However the managed notebooks are currently on 3.7.  So, we'll need to install a newer version of Python.  You can do that by running these commands in the terminal.
+The notebook uses Python 3.8 for LangChain.  However the managed notebooks are currently on 3.7 or 3.10. 
+So, we'll need to install a correct version of Python.  You can do that by running the script new_env.sh
+
+    cd intelligent-app-from-videos-google-generativeai-neo4j
+    ./new_env.sh
+
+**Or** you can run these commands in the terminal.
 
     VENV=py38
     conda create -y -q -p $HOME/conda_env/$VENV python=3.8 ipykernel
